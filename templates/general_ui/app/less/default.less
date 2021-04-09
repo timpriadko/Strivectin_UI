@@ -1,0 +1,212 @@
+@import url(./mixin.less);
+
+@font-face {
+  font-family: 'ACaslonPro Regular';
+  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf');
+  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf'),
+      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ACaslonPro Italic';
+  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf');
+  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf'),
+      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Copperplate Gothic';
+  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf');
+  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf'),
+      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ACaslonPro Semibold';
+  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Semibold.otf');
+  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Semibold.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Semibold.otf'),
+      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Semibold.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+// fonts
+.base_font() {
+  font-family: "ACaslonPro Regular", serif;
+}
+.base_font_semibold() {
+  font-family: "ACaslonPro Semibold", serif;
+}
+.secondary_font() {
+  font-family: "Copperplate Gothic", serif;
+}
+@base_font: "ACaslonPro Regular", serif;
+@base_font_semibold: "ACaslonPro Semibold", serif;
+@font_italic: "ACaslonPro Italic", serif;
+@secondary_font: "Copperplate Gothic", serif;
+// @base_font_bold: "Mallory Bold Regular", sans-serif;
+// @base_font: Raleway, sans-serif;
+// @base_font_bold: Raleway, sans-serif;
+// @secondary_font: Raleway, sans-serif;
+
+// colors
+@main_black: #414042;
+@black_2: #979797;
+@black_3: #262626;
+@gray: #ACACAC;
+@gray_2: #737373;
+@green: #0B6A37;
+@green_light: #43b02a;
+@yellow: #DBC16C;
+
+html {
+  height: 100%;
+}
+html,
+body {
+  margin: 0;
+}
+body {
+  font-size: 14px;
+  .base_font();
+}
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  .base_font();
+
+  &::selection {
+    background: #e8334d;
+    color: #fff;
+  }
+}
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+a {
+  display: inline-block;
+  color: @main_black;
+  text-decoration: none;
+  border-bottom: 2px solid @main_black;
+  padding-bottom: 5px;
+  .transition;
+
+  &:hover {
+    border-color: transparent;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: normal;
+}
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 25px;
+}
+h5 {
+  font-size: 22px;
+}
+h6 {
+  font-size: 16px;
+}
+p {
+  & + p {
+    margin-top: 20px;
+  }
+  &.big {
+    font-size: 16px;
+  }
+}
+ul {
+  list-style: none;
+}
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  appearance: none;
+}
+input {
+  appearance: none;
+}
+input:not([type='submit']) {
+  width: 100%;
+  height: 43px;
+  padding: 15px 0 0 0;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid @main_black;
+  max-width: 633px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 0;
+  z-index: 2;
+
+  @media screen and (max-width: 560px) {
+    padding: 0;
+  }
+
+  &.email-input {
+    margin-top: 40px;
+  }
+}
+label {
+  text-align: center;
+  display: block;
+  font-size: 19px;
+  letter-spacing: 0.32px;
+  line-height: 70px;
+
+  input {
+    display: none !important;
+  }
+}
+textarea {
+  max-width: 100%;
+  outline: none;
+  display: block;
+  padding: 15px 0;
+  min-height: 178px;
+  font-size: 16px;
+  width: 100%;
+  resize: none;
+}
+strong {
+  font-weight: 700;
+}
+::-webkit-input-placeholder {
+  color: #fff;
+}
+::-moz-placeholder {
+  color: #fff;
+}
+:-moz-placeholder {
+  color: #fff;
+}
+:-ms-input-placeholder {
+  color: #fff;
+}
+fieldset {
+  border: none;
+}

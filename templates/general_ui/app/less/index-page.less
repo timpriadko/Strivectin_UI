@@ -1,0 +1,32 @@
+@import "./default.less";
+
+.index {
+
+    &.main-contact {
+        padding: 0 20px;
+    }
+
+    .grid-position {
+        justify-content: flex-start;
+
+        @media screen and (max-width: 560px) {
+            justify-content: space-between;
+        }
+    }
+    
+    h5 {
+        margin-bottom: 25px;
+    }
+
+    .img-block {
+        
+        img {
+
+            @media screen and (max-width: 560px) {
+                object-fit: contain;
+                object-position: bottom;
+                height: 100%;
+            }
+        }
+    }
+}
