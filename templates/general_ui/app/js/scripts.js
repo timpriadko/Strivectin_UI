@@ -97,10 +97,21 @@ $(document).ready(function () {
   function ifNotSpace(field) {
     var regex = /\S/;
     return regex.test(field);
-  }
+  };
+
+  function emailMatch(field_1, field_2) {
+    if (field_1.val().trim() !== field_2.val().trim()) {
+      field_2.closest('.form-group').addClass('invalid-confirm-email');
+      return false;
+    } else {
+      field_2.closest('.form-group').removeClass('invalid-confirm-email');
+      return true;
+    }
+  };
 
   // validate form
   var email = $('#email');
+  var confirm_email = $('#confirm_email');
   var customerSubmitLabel = $('#customer_form_label');
   var customerSubmit = $('#customer_form_submit');
   var text_inputs = $('.user-form input[type=text]:not([name=address2])');
@@ -145,7 +156,8 @@ $(document).ready(function () {
     if (
       age_select.val() !== "" &&
       text_inputs_filled === true &&
-      email && isEmail(email.val())
+      isEmail(email.val()) &&
+      emailMatch(email, confirm_email)
     ) {
       customerSubmit.removeAttr('disabled');
       customerSubmitLabel.removeClass('disabled');
@@ -160,7 +172,18 @@ $(document).ready(function () {
   });
 
   email.keyup(function () {
-    form_validation()
+    form_validation();
+    emailMatch(email, confirm_email);
+  });
+
+  confirm_email.change(function () {
+    form_validation();
+    emailMatch(email, confirm_email)
+  });
+
+  confirm_email.keyup(function () {
+    form_validation();
+    emailMatch(email, confirm_email)
   });
 
   text_inputs.keyup(function () {
@@ -171,9 +194,23 @@ $(document).ready(function () {
     form_validation()
   });
 
-  terms.click(form_validation);
+  if ($('.step-2').length > 0) {
+    customerSubmit.click(form_validation);
+  }
 
-  customerSubmit.click(form_validation);
+  // terms validation
+  function termsValidation() {
+    if ($(terms).is(':checked')
+    ) {
+      customerSubmit.removeAttr('disabled');
+      customerSubmitLabel.removeClass('disabled');
+    } else {
+      customerSubmit.attr('disabled', 'disabled');
+      customerSubmitLabel.addClass('disabled');
+    }
+  }
+
+  terms.click(termsValidation);
 
   // user-form
   if ($('.form-group').length > 0) {
@@ -241,27 +278,6 @@ $(document).ready(function () {
     }
   })
   /* end modal */
-
-  // Slider
-  if ($('.slider').length > 0) {
-    const prevArrowBtn = `<button type="button" class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 10" fill="none" style="&#10;    transform: rotate(90deg);&#10;">
-    <path d="M1.21436 1.64288L8.00007 8.4286L14.7858 1.64288" stroke="#979797" stroke-width="2" stroke-linecap="round"/>
-    </svg></button>`;
-    const nextArrowBtn = `<button type="button" class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 10" fill="none" style="&#10;    transform: rotate(-90deg);&#10;">
-    <path d="M1.21436 1.64288L8.00007 8.4286L14.7858 1.64288" stroke="#979797" stroke-width="2" stroke-linecap="round"/>
-    </svg></button>`;
-
-    $('.slider').slick({
-      dots: true,
-      speed: 300,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      appendDots: $('.dots-block'),
-      prevArrow: prevArrowBtn,
-      nextArrow: nextArrowBtn
-    });
-  };
 
   // send timezone offset to server
   if (window.location.pathname.includes('/index.html')) {
