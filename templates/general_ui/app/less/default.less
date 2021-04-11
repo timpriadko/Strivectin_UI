@@ -1,26 +1,34 @@
 @import url(./mixin.less);
 
 @font-face {
-  font-family: 'ACaslonPro Regular';
-  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf');
-  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf'),
-      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Regular.otf') format('opentype');
+  font-family: 'UntitledSans Regular';
+  src: url('https://raw.githubusercontent.com/timpriadko/Strivectin_UI/master/assets/fonts/UntitledSans-Regular.otf');
+  src: local('../fonts/UntitledSans-Regular.otf'),
+      url('../fonts/UntitledSans-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'ACaslonPro Italic';
-  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf');
-  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf'),
-      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/ACaslonPro-Italic.otf') format('opentype');
+  font-family: 'HarrietText Medium';
+  src: url('https://raw.githubusercontent.com/timpriadko/Strivectin_UI/master/assets/fonts/HarrietText-Medium.otf');
+  src: local('../fonts/HarrietText-Medium.otf'),
+      url('../fonts/HarrietText-Medium.otf') format('opentype');
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
 }
 @font-face {
-  font-family: 'Copperplate Gothic';
-  src: url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf');
-  src: local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf'), local('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf'),
-      url('https://raw.githubusercontent.com/timpriadko/Creed_UK-UI/master/assets/fonts/copperplategothicbt-roman-opentype_bigfontsite.com.otf') format('opentype');
+  font-family: 'HelveticaNeueCyr Light';
+  src: url('https://raw.githubusercontent.com/timpriadko/Strivectin_UI/master/assets/fonts/HelveticaNeueCyr-Light.ttf');
+  src: local('../fonts/HelveticaNeueCyr-Light.ttf'),
+      url('../fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueCyr Medium';
+  src: url('https://raw.githubusercontent.com/timpriadko/Strivectin_UI/master/assets/fonts/HelveticaNeueCyr-Medium.ttf');
+  src: local('../fonts/HelveticaNeueCyr-Medium.ttf'),
+      url('../fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -35,13 +43,16 @@
 
 // fonts
 .base_font() {
-  font-family: "ACaslonPro Regular", serif;
-}
-.base_font_semibold() {
-  font-family: "ACaslonPro Semibold", serif;
+  font-family: "UntitledSans Regular", sans-serif;
 }
 .secondary_font() {
-  font-family: "Copperplate Gothic", serif;
+  font-family: "HarrietText Medium", sans-serif;
+}
+.third_font() {
+  font-family: "HelveticaNeueCyr Medium", sans-serif;
+}
+.base_font_semibold() {
+  font-family: "ACaslonPro Semibold", sans-serif;
 }
 @base_font: "ACaslonPro Regular", serif;
 @base_font_semibold: "ACaslonPro Semibold", serif;
@@ -57,7 +68,8 @@
 @black_2: #979797;
 @black_3: #262626;
 @gray: #ACACAC;
-@gray_2: #737373;
+@gray_2: #8D8D8D;
+@gray_3: #F8F8F8;
 @green: #0B6A37;
 @green_light: #43b02a;
 @yellow: #DBC16C;

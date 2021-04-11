@@ -1,11 +1,5 @@
 'use strict';
 
-// Safari datepicker
-if (document.getElementById("birth_date") && document.getElementById("birth_date").type != "date") {
-  // document.write('<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n');
-  document.write('<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"><\/script>\n');
-}
-
 $(document).ready(function () {
   //disable context
   $(document).bind("contextmenu", function (e) {
@@ -110,26 +104,9 @@ $(document).ready(function () {
   var customerSubmitLabel = $('#customer_form_label');
   var customerSubmit = $('#customer_form_submit');
   var text_inputs = $('.user-form input[type=text]:not([name=address2])');
-  var birth_date = $('#birth_date');
-  var gender_select = $('select[name=gender]');
+  var age_select = $('select[name=age]');
   var phone = $('#phone');
   var terms = $('#terms');
-
-  // get search params data
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const first_name_param = urlParams.get('first_name');
-  const last_name_param = urlParams.get('last_name');
-  const birth_date_param = urlParams.get('birth_date');
-  const gender_param = urlParams.get('gender');
-  // console.log(first_name_param, last_name_param, birth_date_param, gender_param)
-
-  if ($('.step-4').length > 0) {
-    $('input[name=first_name]').val(first_name_param);
-    $('input[name=last_name]').val(last_name_param);
-    $('input[name=birth_date]').val(birth_date_param);
-    $('input[name=gender]').val(gender_param);
-  }
 
   var form_validation = function () {
     var text_inputs_filled_arr = [];
@@ -149,19 +126,12 @@ $(document).ready(function () {
     // check if all text inputs are filled
     text_inputs_filled = !text_inputs_filled_arr.includes(false);
 
-    // birth_date validation
-    if (birth_date.val() === "") {
-      birth_date.closest('div').addClass('required');
-    } else {
-      birth_date.closest('div').removeClass('required');
-    }
-
     // gender validation
-    if (gender_select.val() === "") {
-      gender_select.closest('div').addClass('required');
+    if (age_select.val() === "") {
+      age_select.closest('div').addClass('required');
     } else {
-      gender_select.closest('div').removeClass('required');
-      gender_select.closest('.custom-select').find('.select-selected').addClass('select-filled');
+      age_select.closest('div').removeClass('required');
+      age_select.closest('.custom-select').find('.select-selected').addClass('select-filled');
     }
 
     // email validation
@@ -173,15 +143,9 @@ $(document).ready(function () {
 
     // form validation
     if (
-      $('.step-3').length > 0 &&
-      birth_date.val() !== "" &&
-      gender_select.val() !== "" &&
-      text_inputs_filled === true
-      ||
-      $('.step-4').length > 0 &&
-      email && isEmail(email.val()) &&
+      age_select.val() !== "" &&
       text_inputs_filled === true &&
-      $(terms).is(':checked')
+      email && isEmail(email.val())
     ) {
       customerSubmit.removeAttr('disabled');
       customerSubmitLabel.removeClass('disabled');
@@ -203,11 +167,7 @@ $(document).ready(function () {
     form_validation()
   });
 
-  birth_date.change(function () {
-    form_validation()
-  });
-
-  gender_select.change(function () {
+  age_select.change(function () {
     form_validation()
   });
 
@@ -224,10 +184,6 @@ $(document).ready(function () {
           $(this).find('.form-input').addClass('filled');
         }
       });
-
-      if ($("#birth_date").length > 0) {
-        $("#birth_date").attr('data-date', $("#birth_date").val());
-      };
     }, 100)
   };
 
@@ -305,54 +261,7 @@ $(document).ready(function () {
       prevArrow: prevArrowBtn,
       nextArrow: nextArrowBtn
     });
-  }
-
-  // Date of birth
-  $("#birth_date").on("change", function () {
-    if (document.getElementById("birth_date") && document.getElementById("birth_date").type === "date") {
-      $(this).css({ 'color': 'transparent' })
-      if ($(this).val() === '') {
-        $("#birth_date").addClass('change');
-      } else {
-        $("#birth_date").removeClass('change');
-      };
-      this.setAttribute(
-        "data-date",
-        moment(this.value, "YYYY-MM-DD")
-          .format(this.getAttribute("data-date-format"))
-      );
-    };
-    if ($(this).val() !== '') {
-      $(this).closest('.form-group').addClass('focused');
-      $(this).addClass('filled');
-    };
-  });
-
-  // date - set max date
-  if (document.getElementById("birth_date")) {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = '0' + dd
-    }
-    if (mm < 10) {
-      mm = '0' + mm
-    }
-
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById("birth_date").setAttribute("max", today);
-
-    // Safari datepicker
-    if (document.getElementById("birth_date").type != "date") { //if browser doesn't support input type="date", initialize date picker widget:
-      $('#birth_date').datepicker({
-        changeMonth: true,
-        changeYear: true,
-        dateFormat: 'yy-mm-dd'
-      });
-    }
-  }
+  };
 
   // send timezone offset to server
   if (window.location.pathname.includes('/index.html')) {

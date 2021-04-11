@@ -11,155 +11,127 @@
 </head>
 
 <body>
-  <main class="main-contact step-1">
+  <main class="main-contact step-2">
 
-    <div class="logo">
-      <img src="img/logo-Strivectin.svg" alt="logo" />
-    </div>
+    <form action="step_3.html" method="get" class="container user-form">
 
-    <h2>
-      The Fragrance Story
-    </h2>
+      <div class="grid-position">
 
-    <div class="text italic text-center">
+        <div class="grid-position--top">
 
-      <p>
-        The House of Creed is proud to present
-        <br>
-        Viking Cologne.
-      </p>
+          <div class="logo">
+            <img src="img/logo-Strivectin.svg" alt="logo" />
+          </div>
 
-      <p>
-        An aromatic Eau de Parfum that
-        <br>
-        refreshes the wearer with an
-        <br>
-        exhilarating energy, to inspire renewed
-        <br>
-        determination and an all-conquering
-        <br>
-        spirit.
-      </p>
-    </div>
+          <div class="img-block img-block--md">
+            <img src="./img/SH02_Hero-2-The-Wrinkle-Specialist.jpg" alt="Strivectin product">
+          </div>
 
-    <div class="img-block">
-      <img src="./img/image2.jpg" alt="Creed">
-    </div>
+          <h2>
+            Please fill out your details to receive a sample at home
+          </h2>
 
-    <div class="text italic text-center">
+          <fieldset>
 
-      <p>
-        This masterful alchemy of zingy citrus fruits
-        <br>
-        with aromatic heart notes is fused together by
-        <br>
-        a woody base,
-        featuring dry sandalwood,
-        <br>
-        zesty bergamot and earthy vetiver.
-      </p>
+            <div class="form-row fullwidth">
+              <div class="form-group">
+                <input class="form-input" name="first_name" type="text">
+                <label class="form-label" for="subscribe">First name</label>
+              </div>
+            </div>
 
-    </div>
+            <div class="form-row two-column">
+              <div class="form-group">
+                <input class="form-input" name="last_name" type="text">
+                <label class="form-label" for="subscribe">Last name</label>
+              </div>
+              <div class="custom-select">
+                <select name="age">
+                  <option value="">Age range</option>
+                  <option value="18-25">18-25</option>
+                  <option value="26-35">26-35</option>
+                  <option value="36-45">36-45</option>
+                  <option value="46-55">46-55</option>
+                  <option value="> 55">> 55</option>
+                </select>
+              </div>
+            </div>
 
-    <div class="img-block">
-      <img src="./img/image3.jpg" alt="Creed">
-    </div>
+          </fieldset>
 
-    <div class="text italic text-center">
+          <fieldset>
 
-      <p>
-        In contrast to the original Viking - an
-        <br>
-        award-winning, bold and fiery masculine
-        <br>
-        masterpiece; this cooler
-        counterpart has a
-        <br>
-        refreshing twist. The perfect scent to
-        <br>
-        transition you effortlessly into the warmer
-        <br>
-        months that
-        lie ahead.
-      </p>
+            <div class="form-row fullwidth">
+              <div class="form-group">
+                <input class="form-input" name="email" type="email" id="email">
+                <label class="form-label" for="email">Email</label>
+              </div>
+            </div>
 
-    </div>
+            <div class="form-row fullwidth">
+              <div class="form-group">
+                <input class="form-input" name="confirm_email" type="email" id="confirm_email">
+                <label class="form-label" for="confirm_email">Confirm email</label>
+              </div>
+            </div>
 
-    <div class="img-block">
-      <img src="./img/image4.jpg" alt="Creed">
-    </div>
+          </fieldset>
 
-    <div class="slider-wrap">
+          <fieldset>
 
-      <div class="text italic text-center">
+            <div class="form-row fullwidth">
+              <div class="form-group">
+                <input class="form-input" name="address" type="text">
+                <label class="form-label" for="address">Address</label>
+              </div>
+            </div>
 
-        <h3 class="italic">
-          We now invite you to discover
-          <br>
-          Viking Cologne with a
-          <br>
-          complimentary 2ml sample.
-        </h3>
+            <div class="form-row fullwidth">
+              <div class="form-group">
+                <input class="form-input" name="address2" type="text">
+              </div>
+            </div>
 
-      </div>
+            <div class="form-row two-column">
+              <div class="form-group">
+                <input class="form-input" name="city" type="text">
+                <label class="form-label" for="city">City</label>
+              </div>
+              <div class="form-group">
+                <input class="form-input" name="zip" type="text">
+                <label class="form-label" for="zip">Post code</label>
+              </div>
+            </div>
 
-      <h2>
-        Fragrance Notes
-      </h2>
+            <div class="form-row fullwidth">
+              <div class="form-group focused">
+                <input class="form-input" name="country" type="text" value="United Kingdom" readonly>
+                <label class="form-label" for="country">Country</label>
+              </div>
+            </div>
 
-      <h4>
-        Aromatic Fougère, Crisp
-      </h4>
-
-      <div class="slider">
-
-        <div>
-
-          <h4>
-            Top notes
-          </h4>
-
-          <p>
-            Bergamot, Lemon, Mandarin, Pink Pepper
-          </p>
+          </fieldset>
 
         </div>
 
-        <div>
+        <div class="grid-position--bottom">
 
-          <h4>
-            Heart Notes
-          </h4>
-
-          <p>
-            Geranium, Lavender, Nutmeg, Rosemary, Sage
-          </p>
-
-        </div>
-
-        <div>
-
-          <h4>
-            Base Notes
-          </h4>
-
-          <p>
-            Sandalwood, Frankincense, Patchouli, Cedarwood, Vetiver
-          </p>
+          <div class="btns">
+            <label class="btn btn--black disabled" id="customer_form_label">
+              <input type="submit" id="customer_form_submit" readonly />
+              Continue
+            </label>
+          </div>
 
         </div>
 
       </div>
 
-      <div class="dots-block">
-
-      </div>
-    </div>
-
-    <a href="step_3.html" class="btn btn--black">Continue</a>
+    </form>
 
   </main>
   <script src="js/libs.min.js"></script>
+  <script src="./libs/moment.min.js"></script>
   <script src="js/scripts.min.js"></script>
 </body>
 
